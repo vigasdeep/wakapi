@@ -264,6 +264,17 @@ function draw(subselection) {
         })
         : null
 
+        setTimeout(() => { // To be removed
+        var image = languageChart.toBase64Image();
+console.log('<a download="chart.png" href="'+image +'">Download</a>');
+    // console.log('languagesCanvas :>> ', langCanvasCtx);
+            //do work
+                let elem = document.getElementById('chart-download');
+                elem.innerHTML = elem.innerHTML + '<a download="chart.png" href="'+image +'">Download</a>';
+
+                // document.getElementById("chart-download").innerHTML();
+            }, 2000);
+
     let machineChart = machinesCanvas && !machinesCanvas.classList.contains('hidden') && shouldUpdate(4)
         ? new Chart(machinesCanvas.getContext('2d'), {
             type: 'pie',
